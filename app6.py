@@ -11,7 +11,7 @@ cad_file = st.sidebar.file_uploader("Upload CAD File (Excel/CSV)", type=["xlsx",
 
 def load_file(uploaded_file):
     if uploaded_file.name.endswith(".csv"):
-        return pd.read_csv(uploaded_file, dtype=str,engine="openpyxl")
+        return pd.read_csv(uploaded_file, dtype=str)
     else:
         return pd.read_excel(uploaded_file, dtype=str,engine="openpyxl")
 
