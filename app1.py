@@ -12,7 +12,7 @@ if bom_file and cad_file:
 
     # Read BOM
     if bom_file.name.endswith(".xlsx"):
-        bom_df = pd.read_excel(bom_file)
+        bom_df = pd.read_excel(bom_file,engine="openpyxl")
     else:
         bom_df = pd.read_csv(bom_file)
 
