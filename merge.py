@@ -55,6 +55,11 @@ if bom_file and cad_file:
                 how="inner"
             )
 
+            # Fix duplicate Component columns
+            if "Component_x" in merged.columns and "Component_y" in merged.columns:
+                merged["Component"] = merged["Component_x"].fillna(merged["Component_y"])
+                merged.drop(columns=["Component_x", "Component_y"], inplace=True)
+
             # Safe selection of final result
             expected_cols = [
                 "Reference Designator",
